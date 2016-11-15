@@ -1,4 +1,6 @@
 <%= render 'shared/title', title: 'Post List'%>
 <% @posts.each do |post| %>
-  <%= render 'post', post: post %>
+  <div>
+    <%= render 'post', post: post %>
+  </div>
 <% end %>

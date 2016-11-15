@@ -2,19 +2,17 @@
 
 <h4><%= current_user.name %>'s posts:</h4>
 
-<% @user.posts.each do |post| %>
-
-<div class="row">
-  <div class="col-md-8 well">
-    <h3><%= post.title %></h3>
-    <p>
-      <%= post.content %>
-    </p>
-    <br>
-    <small>posted by </small><%= " #{post.user.name}" %>
+<% @user.posts.reverse.each do |post| %>
+  <div class="row">
+    <div class="col-md-8 well">
+      <h3><%= post.title %></h3>
+      <div>
+        <%= post.content %>
+      </div>
+      <br>
+      <small>posted by </small><%= " #{post.user.name}" %>
+    </div>
   </div>
-</div>
-
 <% end %>
 <hr>
 <h4><%= current_user.name %>'s comments:</h4>
