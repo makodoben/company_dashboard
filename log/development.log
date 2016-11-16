@@ -7602,3 +7602,922 @@ Processing by PostsController#index as HTML
   Rendered layouts/_navigation.html.erb (0.6ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 92ms (Views: 84.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts" for ::1 at 2016-11-16 16:47:34 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.9ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mVote Load (1.8ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", "f"]]
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 6], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 6], ["voteable_type", "Post"], ["vote", "f"]]
+  Rendered shared/_title.html.erb (0.4ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 6], ["voteable_type", "Post"], ["vote", true]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 6], ["voteable_type", "Post"], ["vote", false]]
+  [1m[35mCategory Load (1.5ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?  [["post_id", 6]]
+  Rendered categories/_category.html.erb (0.7ms)
+  Rendered posts/_post.html.erb (59.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", true]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", false]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered categories/_category.html.erb (0.1ms)
+  Rendered posts/_post.html.erb (5.4ms)
+  Rendered posts/index.html.erb within layouts/application (79.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 543ms (Views: 449.3ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/assets/application.self-61861ad83327483be016372b2b5eb15d05dafe97a89ad7eee284bd4e89919a94.css?body=1" for ::1 at 2016-11-16 16:47:35 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-11-16 16:47:35 +0800
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-11-16 16:47:35 +0800
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for ::1 at 2016-11-16 16:47:35 +0800
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-11-16 16:47:35 +0800
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-11-16 16:47:35 +0800
+
+
+Started DELETE "/posts/6" for ::1 at 2016-11-16 16:47:44 +0800
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Atzx4KR/dHHlIPT1tcO+C5o52YFmgWhgUSs2QeVFpo9GKp0Us11bvOQlAFyXihmyLVBuVwE9dqFClom0FZNAFw==", "id"=>"6"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 6]]
+  [1m[36m (7.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 12ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/posts" for ::1 at 2016-11-16 16:47:44 +0800
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", "f"]]
+  Rendered shared/_title.html.erb (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", true]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", false]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?  [["post_id", 1]]
+  Rendered categories/_category.html.erb (0.5ms)
+  Rendered posts/_post.html.erb (11.4ms)
+  Rendered posts/index.html.erb within layouts/application (20.3ms)
+  Rendered layouts/_navigation.html.erb (0.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 144ms (Views: 138.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2016-11-16 16:47:46 +0800
+Processing by PostsController#new as HTML
+  Rendered shared/_title.html.erb (0.3ms)
+  [1m[36mCategory Load (1.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered posts/new.html.erb within layouts/application (78.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_navigation.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 158ms (Views: 155.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/posts" for ::1 at 2016-11-16 16:47:55 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cFl8DchIQ4MDuBHG0By6TkOfU7+ByMR3X2oCevrzqiE0rxD532psTgK95W/yVR339PbkaeZ02rZM172PCiVMuQ==", "post"=>{"title"=>"2016-11-16", "content"=>"bundle install  --without production", "category_ids"=>["1", ""]}, "commit"=>"Create Post"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "2016-11-16"], ["content", "bundle install  --without production"], ["user_id", 1], ["created_at", "2016-11-16 08:47:55.554614"], ["updated_at", "2016-11-16 08:47:55.554614"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories_posts" ("category_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 1], ["post_id", 7], ["created_at", "2016-11-16 08:47:55.558000"], ["updated_at", "2016-11-16 08:47:55.558000"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 44ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/posts" for ::1 at 2016-11-16 16:47:55 +0800
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", "f"]]
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[36mVote Load (0.3ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "f"]]
+  Rendered shared/_title.html.erb (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", true]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", false]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered categories/_category.html.erb (0.1ms)
+  Rendered posts/_post.html.erb (6.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", true]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 1], ["voteable_type", "Post"], ["vote", false]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?  [["post_id", 1]]
+  Rendered categories/_category.html.erb (0.3ms)
+  Rendered posts/_post.html.erb (9.9ms)
+  Rendered posts/index.html.erb within layouts/application (22.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 103ms (Views: 90.3ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/posts/1" for ::1 at 2016-11-16 16:48:08 +0800
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1D6YNgly0cHR5k8OXuPp0t/3ePjTR43iXbXQzKAC3kOQyPTCHlD+DNDju6d8qk5raJ7PLrT7kyNOCG85UNQ42w==", "id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+  [1m[35m (5.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 10ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/posts" for ::1 at 2016-11-16 16:48:08 +0800
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "f"]]
+  Rendered shared/_title.html.erb (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", true]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", false]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered categories/_category.html.erb (0.2ms)
+  Rendered posts/_post.html.erb (9.8ms)
+  Rendered posts/index.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_navigation.html.erb (9.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 146ms (Views: 140.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2016-11-16 16:48:11 +0800
+Processing by PostsController#new as HTML
+  Rendered shared/_title.html.erb (0.0ms)
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered posts/new.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 84ms (Views: 83.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for ::1 at 2016-11-16 16:48:19 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rgc34mJzBJep1CmUHDFLlSaBcBZPFS414/K1htBW4Zfq8VsWdVErWqjR3T0+eOwskejHwCipMPTwTwpzIIAHDw==", "post"=>{"title"=>"2016-11-16-1", "content"=>"f", "category_ids"=>["1", ""]}, "commit"=>"Create Post"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "2016-11-16-1"], ["content", "f"], ["user_id", 1], ["created_at", "2016-11-16 08:48:19.148978"], ["updated_at", "2016-11-16 08:48:19.148978"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories_posts" ("category_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 1], ["post_id", 8], ["created_at", "2016-11-16 08:48:19.150348"], ["updated_at", "2016-11-16 08:48:19.150348"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 10ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/posts" for ::1 at 2016-11-16 16:48:19 +0800
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "f"]]
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 8], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 8], ["voteable_type", "Post"], ["vote", "f"]]
+  Rendered shared/_title.html.erb (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 8], ["voteable_type", "Post"], ["vote", true]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 8], ["voteable_type", "Post"], ["vote", false]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?  [["post_id", 8]]
+  Rendered categories/_category.html.erb (0.1ms)
+  Rendered posts/_post.html.erb (5.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", true]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", false]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered categories/_category.html.erb (0.2ms)
+  Rendered posts/_post.html.erb (3.6ms)
+  Rendered posts/index.html.erb within layouts/application (13.0ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 72ms (Views: 63.3ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/8" for ::1 at 2016-11-16 16:48:26 +0800
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YKn/oaJ1JWAsllk/Xk15QBl2TopHUJaS7h3oNpha0bkkX5NVtVcKrS2TrZZ8BN75rh/5XCDsiFP9oFfDaIw3IQ==", "id"=>"8"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 8]]
+  [1m[36m (6.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 11ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/posts" for ::1 at 2016-11-16 16:48:26 +0800
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "f"]]
+  Rendered shared/_title.html.erb (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", true]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", false]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?  [["post_id", 7]]
+  Rendered categories/_category.html.erb (0.1ms)
+  Rendered posts/_post.html.erb (28.6ms)
+  Rendered posts/index.html.erb within layouts/application (43.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 197ms (Views: 190.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/changelogs/last_id" for ::1 at 2016-11-16 16:48:30 +0800
+
+ActionController::RoutingError (No route matches [GET] "/changelogs/last_id"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (20.2ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (49.1ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (114.6ms)
+
+
+Started GET "/devices/status" for ::1 at 2016-11-16 16:48:31 +0800
+
+ActionController::RoutingError (No route matches [GET] "/devices/status"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (19.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (38.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (88.9ms)
+
+
+Started GET "/changelogs/last_id" for ::1 at 2016-11-16 16:49:31 +0800
+
+ActionController::RoutingError (No route matches [GET] "/changelogs/last_id"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (17.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (55.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (110.0ms)
+
+
+Started GET "/devices/status" for ::1 at 2016-11-16 16:49:31 +0800
+
+ActionController::RoutingError (No route matches [GET] "/devices/status"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (13.8ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (41.1ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (96.9ms)
+
+
+Started GET "/devices/disabled_count" for ::1 at 2016-11-16 16:50:08 +0800
+
+ActionController::RoutingError (No route matches [GET] "/devices/disabled_count"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (14.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (44.0ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (94.3ms)
+
+
+Started GET "/changelogs/last_id" for ::1 at 2016-11-16 16:50:32 +0800
+
+ActionController::RoutingError (No route matches [GET] "/changelogs/last_id"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (17.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (43.2ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (97.8ms)
+
+
+Started GET "/devices/status" for ::1 at 2016-11-16 16:50:32 +0800
+
+ActionController::RoutingError (No route matches [GET] "/devices/status"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (12.8ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (36.0ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (80.7ms)
+
+
+Started GET "/changelogs/last_id" for ::1 at 2016-11-16 16:51:33 +0800
+
+ActionController::RoutingError (No route matches [GET] "/changelogs/last_id"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (28.1ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (71.9ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (147.4ms)
+
+
+Started GET "/devices/status" for ::1 at 2016-11-16 16:51:33 +0800
+
+ActionController::RoutingError (No route matches [GET] "/devices/status"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (17.9ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (47.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (105.8ms)
+
+
+Started GET "/changelogs/last_id" for ::1 at 2016-11-16 16:52:34 +0800
+
+ActionController::RoutingError (No route matches [GET] "/changelogs/last_id"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (18.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (47.9ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (106.7ms)
+
+
+Started GET "/devices/status" for ::1 at 2016-11-16 16:52:34 +0800
+
+ActionController::RoutingError (No route matches [GET] "/devices/status"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (15.1ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (40.7ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (93.3ms)
+
+
+Started GET "/devices/status" for ::1 at 2016-11-16 17:18:39 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/devices/status"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (24.8ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (53.2ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (128.1ms)
+
+
+Started GET "/changelogs/last_id" for ::1 at 2016-11-16 17:18:40 +0800
+
+ActionController::RoutingError (No route matches [GET] "/changelogs/last_id"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (14.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (44.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (93.4ms)
+
+
+Started GET "/devices/status" for ::1 at 2016-11-16 17:19:41 +0800
+
+ActionController::RoutingError (No route matches [GET] "/devices/status"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (15.1ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (47.7ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (105.2ms)
+
+
+Started GET "/changelogs/last_id" for ::1 at 2016-11-16 17:19:41 +0800
+
+ActionController::RoutingError (No route matches [GET] "/changelogs/last_id"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+  puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+  puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+  puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (13.5ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (48.6ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/makodoben/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (101.7ms)
+
+
+Started GET "/posts" for ::1 at 2016-11-16 17:20:09 +0800
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mVote Load (1.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "f"]]
+  Rendered shared/_title.html.erb (0.4ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", true]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", false]]
+  [1m[35mCategory Load (1.5ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?  [["post_id", 7]]
+  Rendered categories/_category.html.erb (0.6ms)
+  Rendered posts/_post.html.erb (64.2ms)
+  Rendered posts/index.html.erb within layouts/application (70.6ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 568ms (Views: 443.0ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-11-16 17:20:10 +0800
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-11-16 17:20:10 +0800
+
+
+Started GET "/assets/application.self-61861ad83327483be016372b2b5eb15d05dafe97a89ad7eee284bd4e89919a94.css?body=1" for ::1 at 2016-11-16 17:20:10 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-11-16 17:20:10 +0800
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for ::1 at 2016-11-16 17:20:10 +0800
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-11-16 17:20:10 +0800
+
+
+Started GET "/logout" for ::1 at 2016-11-16 17:20:12 +0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-11-16 17:20:12 +0800
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "t"]]
+  [1m[36mVote Load (0.3ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", "f"]]
+  Rendered shared/_title.html.erb (0.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", true]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."voteable_id" = ? AND "votes"."voteable_type" = ? AND "votes"."vote" = ?[0m  [["voteable_id", 7], ["voteable_type", "Post"], ["vote", false]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categories_posts" ON "categories"."id" = "categories_posts"."category_id" WHERE "categories_posts"."post_id" = ?  [["post_id", 7]]
+  Rendered categories/_category.html.erb (0.8ms)
+  Rendered posts/_post.html.erb (16.9ms)
+  Rendered posts/index.html.erb within layouts/application (21.3ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 102ms (Views: 95.5ms | ActiveRecord: 0.7ms)

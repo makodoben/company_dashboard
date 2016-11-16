@@ -31,8 +31,10 @@
     </span>
   </div>
   <div class="row">
-    <%= link_to post_path(post), class: "btn btn-success", :method => :delete do %>
-      Delete
+    <% if logged_in? %>
+      <%= link_to post_path(post), class: "btn btn-success", :method => :delete do %>
+        Delete
+      <% end %>
     <% end %>
   </div>
 </div>
